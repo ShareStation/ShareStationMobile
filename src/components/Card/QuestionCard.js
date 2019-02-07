@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import PropType from 'prop-types'
-import Icon from 'react-native-vector-icons/EvilIcons'
+import { View, StyleSheet } from 'react-native';
+import PropType from 'prop-types';
+import Icon from 'react-native-vector-icons/EvilIcons';
 import {
   Container,
   Content,
@@ -11,7 +12,7 @@ import {
   Left,
   Thumbnail,
   Right
-} from 'native-base'
+} from 'native-base';
 
 
 export class QuestionCard extends Component {
@@ -19,7 +20,7 @@ export class QuestionCard extends Component {
   renderIconSolvedOrNot = () => {
     const { solved } = this.props;
 
-    if (solved) return (<Icon name="check" size={42} color="#66BB6A" />);
+    if (solved) return (<Icon name="check" size={42} color="#00E676" />);
     return (<Icon name="check" size={42} />);
   }
 
@@ -34,14 +35,15 @@ export class QuestionCard extends Component {
     } = this.props;
 
     return (
-      <Container>
+      // <Container>
+      <View style={styles.container}>
         <Content>
           <Card style={{ flex: 0 }}>
             <CardItem>
               <Left>
                 <Thumbnail source={{ uri: thumbnail }} />
                 <Body>
-                  <Text>{author}</Text>
+                  <Text numberOfLines={1}>{author}</Text>
                   <Text note>{date}</Text>
                 </Body>
               </Left>
@@ -58,15 +60,23 @@ export class QuestionCard extends Component {
             </CardItem>
             <CardItem>
               <Text note>
-                {tags}
+                {tags.join(' ')}
               </Text>
             </CardItem>
           </Card>
         </Content>
-      </Container>
+      </View>
+      // </Container>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    marginTop: 10
+  }
+})
+
 
 QuestionCard.defaultProps = {
   solved: false
