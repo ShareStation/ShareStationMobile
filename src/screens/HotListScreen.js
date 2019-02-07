@@ -1,6 +1,8 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
-import { QuestionCard } from '../components/Card'
+import { View, StyleSheet, Text, FlatList } from 'react-native';
+import { QuestionCard } from '../components/Card';
+
+import { questions } from '../data';
 
 export default class HotListScreen extends React.Component {
 
@@ -8,18 +10,31 @@ export default class HotListScreen extends React.Component {
     title: 'Hot List'
   };
 
+  componentWillMount = () => {
+    console.log('questions', questions)
+  }
+
+
+  renderItem = ({ item }) => {
+    return (
+      <QuestionCard
+        solved={item.solved}
+        thumbnail={item.thumbnail}
+        date={item.date}
+        author={item.author}
+        question={item.question}
+        tags={item.tags}
+      />
+    );
+  };
+
   render() {
     return (
       <View style={styles.container}>
-        <QuestionCard
-          thumbnail={'http://lorempixel.com/256/256/'}
-          date="Mar 12, 2019"
-          author="Caique"
-          question="Sei lá"
-          tags={[
-            '#test',
-            '#nada'
-          ]}
+        <FlatList
+          data={questions}
+          renderItem={this.renderItem}
+          keyExtractor={item => item.id}
         />
       </View>
     );
