@@ -15,6 +15,14 @@ import {
 
 
 export class QuestionCard extends Component {
+
+  renderIconSolvedOrNot = () => {
+    const { solved } = this.props;
+
+    if (solved) return (<Icon name="check" size={42} color="#66BB6A" />);
+    return (<Icon name="check" size={42} />);
+  }
+
   render() {
 
     const {
@@ -38,7 +46,7 @@ export class QuestionCard extends Component {
                 </Body>
               </Left>
               <Right>
-                <Icon name="check" size={42} />
+                {this.renderIconSolvedOrNot()}
               </Right>
             </CardItem>
             <CardItem>
@@ -60,10 +68,15 @@ export class QuestionCard extends Component {
   }
 }
 
+QuestionCard.defaultProps = {
+  solved: false
+};
+
 QuestionCard.propTypes = {
   tags: PropType.arrayOf(PropType.string).isRequired,
   question: PropType.string.isRequired,
   author: PropType.string.isRequired,
   date: PropType.string.isRequired,
-  thumbnail: PropType.string.isRequired
+  thumbnail: PropType.string.isRequired,
+  solved: PropType.bool
 };
