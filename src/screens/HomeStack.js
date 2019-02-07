@@ -16,7 +16,7 @@ export const HomeStack = createMaterialTopTabNavigator(
       activeTintColor: 'black',
       inactiveTintColor: 'gray',
       indicatorStyle: {
-        backgroundColor: 'black'
+        backgroundColor: '#FF9800'
       },
       style: { backgroundColor: '#fff' }
     }
@@ -24,5 +24,6 @@ export const HomeStack = createMaterialTopTabNavigator(
 );
 
 HomeStack.navigationOptions = {
-  title: 'Sharestation'
+  title: 'Sharestation',
+  headerTintColor: '#333'
 };

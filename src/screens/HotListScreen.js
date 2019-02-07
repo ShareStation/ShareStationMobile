@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
+import { QuestionCard } from '../components/Card'
 
 export default class HotListScreen extends React.Component {
 
@@ -10,9 +11,16 @@ export default class HotListScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>
-          Hot list
-          </Text>
+        <QuestionCard
+          thumbnail={'http://lorempixel.com/256/256/'}
+          date="Mar 12, 2019"
+          author="Caique"
+          question="Sei lá"
+          tags={[
+            '#test',
+            '#nada'
+          ]}
+        />
       </View>
     );
   }
@@ -21,7 +29,7 @@ export default class HotListScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    padding: 16,
+    // backgroundColor: '#333',
   }
 })
