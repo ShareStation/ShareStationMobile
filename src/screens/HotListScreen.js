@@ -1,7 +1,8 @@
 import React from 'react';
-import { View, StyleSheet, Text, FlatList } from 'react-native';
+import { View, StyleSheet, FlatList } from 'react-native';
 import { QuestionCard } from '../components/Card';
-
+import FAButton from 'react-native-action-button';
+import { orange } from '../resources/colors'
 import { questions } from '../data';
 
 export default class HotListScreen extends React.Component {
@@ -13,7 +14,6 @@ export default class HotListScreen extends React.Component {
   componentWillMount = () => {
     console.log('questions', questions)
   }
-
 
   renderItem = ({ item }) => {
     return (
@@ -36,6 +36,7 @@ export default class HotListScreen extends React.Component {
           renderItem={this.renderItem}
           keyExtractor={item => item.id}
         />
+        <FAButton buttonColor={orange.primary} />
       </View>
     );
   }

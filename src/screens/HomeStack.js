@@ -1,7 +1,8 @@
-import { createMaterialTopTabNavigator } from 'react-navigation'
-import HotListScreen from './HotListScreen'
-import TopFiveQustionsScreen from './TopFiveQustionsScreen'
-import TopTenTagsScreen from './TopTenTagsScreen'
+import { createMaterialTopTabNavigator } from 'react-navigation';
+import HotListScreen from './HotListScreen';
+import TopFiveQustionsScreen from './TopFiveQustionsScreen';
+import TopTenTagsScreen from './TopTenTagsScreen';
+import { orange } from '../resources/colors'
 
 export const HomeStack = createMaterialTopTabNavigator(
   {
@@ -16,14 +17,14 @@ export const HomeStack = createMaterialTopTabNavigator(
       activeTintColor: 'black',
       inactiveTintColor: 'gray',
       indicatorStyle: {
-        backgroundColor: '#FF9800'
+        backgroundColor: orange.light
       },
-      style: { backgroundColor: '#fff' }
+      style: { backgroundColor: 'white' }
     }
   }
 );
 
 HomeStack.navigationOptions = {
   title: 'Sharestation',
-  headerTintColor: '#333'
+  headerTintColor: 'black'
 };
